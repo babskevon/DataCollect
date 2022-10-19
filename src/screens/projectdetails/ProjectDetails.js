@@ -65,7 +65,6 @@ const ProjectDetails = () => {
         type_of_well:wells[tow-1].value,
         well_status:status[wellstatus-1].value
       };
-      alert(JSON.stringify(data2));
       navigation.navigate('submitdata',data2);
     }
   };
