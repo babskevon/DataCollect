@@ -26,9 +26,11 @@ const Home = () => {
   React.useEffect(()=>{
     setTimeout(() => {
       setGetData(false);
-    }, 1000);
+    }, 800);
   },[]);
 
+
+  
   if(getdata){
     fetch(
       url,
@@ -41,15 +43,12 @@ const Home = () => {
       return response.json();
     })
     .then(response=>{
-      console.log("reaching here");
-      console.log(response);
       setRecords(response);
-      console.log(records);
     });
 
     return (
-      <View>
-        <Text>Loading...</Text>
+      <View style={styles.loading}>
+        <Text style={styles.loadscreen}>Loading Data...</Text>
       </View>
     );
   }
@@ -163,5 +162,21 @@ const styles = StyleSheet.create({
     paddingLeft:5,
     paddingRight:5,
     alignItems: 'center',
+  },
+  loading:{
+    flex: 1,
+    alignItems: 'center',
+    alignContent: 'center',
+    // padding:150,
+    textAlignVertical:'center',
+    textAlign: 'center',
+  },
+  loadscreen:{
+    textAlignVertical:'center',
+    textAlign: 'center',
+    marginTop:150,
+    color: 'grey',
+    fontWeight:'bold',
+    fontSize:30,
   }
 });

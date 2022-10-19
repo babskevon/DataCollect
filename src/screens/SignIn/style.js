@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
     root:{
         alignItems: 'center',
-        paddingTop:150,
+        paddingTop:65,
         paddingLeft:20,
         paddingRight:20,
     },

@@ -4,7 +4,7 @@ import Authstack from '../../screens/authstack/Authstack';
 import Appstack from '../../screens/appstack/Appstack';
 // import * as SecureStore from 'expo-secure-store';
 import { AuthContext } from '../../context/Context';
-import {View, Text} from 'react-native';
+import {StyleSheet,View, Text} from 'react-native';
 import {getToken, setToken,removeToken} from '../../storage/Storage';
 
 
@@ -61,6 +61,10 @@ const Router = () => {
       // alert(loginState.userToken);
       return loginState.userToken;
     },
+    loginUser:()=>{
+      // return login username  
+      return loginState.username;
+    },
     signIn:(data)=>{
       fetch(
         url,
@@ -97,8 +101,8 @@ const Router = () => {
    
   if(loginState.isLoading){
     return (
-      <View style={{alignContent:'center',flex:1,margin:80}}>
-        <Text>Its loading now</Text>
+      <View style={styles.loading}>
+        <Text style={styles.loadscreen}>Still loading...</Text>
       </View>
     );
   }
@@ -113,6 +117,28 @@ const Router = () => {
       </NavigationContainer >
     </AuthContext.Provider>
   )
-}
+};
+
+
+
+const styles = StyleSheet.create({
+  loading:{
+    flex: 1,
+    alignItems: 'center',
+    alignContent: 'center',
+    // padding:150,
+    textAlignVertical:'center',
+    textAlign: 'center',
+  },
+  loadscreen:{
+    textAlignVertical:'center',
+    textAlign: 'center',
+    marginTop:150,
+    color: 'grey',
+    fontWeight:'bold',
+    fontSize:30,
+  }
+});
 
 export default Router;
+

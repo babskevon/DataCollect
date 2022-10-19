@@ -4,6 +4,7 @@ import Logo from '../../../assets/img/logo.png';
 import { CustomInput, CustomButton } from '../../components';
 import {styles} from './style';
 import {AuthContext} from '../../context/Context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 
@@ -16,8 +17,12 @@ function SignIn() {
 
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-    <View style={styles.root}>
+    <KeyboardAwareScrollView 
+      // style={styles.root}
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      contentContainerStyle={styles.root}
+      scrollEnabled={false}
+    >
       <Image 
         source={Logo} 
         style={[styles.logo, {height:height*0.3}]} 
@@ -48,8 +53,7 @@ function SignIn() {
         // onPress={forgotPassword}
         type="TERTIARY"
       />
-    </View>
-    </ScrollView> 
+    </KeyboardAwareScrollView> 
   )
 }
 
