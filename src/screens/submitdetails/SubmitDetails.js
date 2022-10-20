@@ -82,6 +82,7 @@ const SubmitDetails = () => {
       })
       .then(res=>{
         if(res.data.owner === loginUser()){
+          alert("Data submitted successfully");
           navigation.navigate('Home');
         }
       })
